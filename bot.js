@@ -13,11 +13,13 @@ var Font = Canvas.Font;
 var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
 var index = 0;
 	
+	console.log("WE ARE LIVE");
 setInterval(hub, 1000*10*60);
 
 
 
 function hub(){
+	console.log("NEXT WORD");
 	var word = words[index].charAt(0).toString().toUpperCase() + words[index].substring(1);
 		var textCanvas = new Canvas.createCanvas(1280, 450);	
 			var ctx = textCanvas.getContext("2d");
