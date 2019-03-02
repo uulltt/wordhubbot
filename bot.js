@@ -18,7 +18,6 @@ setInterval(hub, 1000*60*60);
 
 
 function hub(){
-	var canvas;
 	var word = words[index].charAt(0).toString().toUpperCase() + words[index].substring(1);
 		var textCanvas = new Canvas.createCanvas(1280, 450);	
 			var ctx = textCanvas.getContext("2d");
@@ -40,7 +39,9 @@ function hub(){
 			ctx.fillText(word, textCanvas.width - 610, 240);
 	tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
 	var id = data.media_id_string;
-		tweeter.post('statuses/updates/', {status: currentword + "hub", mediaIds: [id]}, console.log('tweeted :)'));
+		tweeter.post('statuses/updates/', {status: currentword + "hub", mediaIds: [id]}, function(err2, data2, response2){
+		console.log(data2);
+		});
 		index++;
 	});
 }
