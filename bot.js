@@ -1,3 +1,10 @@
+/*
+	wordhubbot
+	by Aaron Varkonyi (@ajvark/uulltt) and Dakarai Simmons (@dakaraisimmons/infinitelycannon)
+	created for KnightHacks 2019
+	inspired by @wordtubebot by Jesse Deathtrips.
+*/
+
 var Twitter = require('twitter');
 
 var tweeter = new Twitter({
@@ -5,65 +12,54 @@ var tweeter = new Twitter({
 		consumer_secret: process.env.secret_key,
 		access_token_key: process.env.access_token,
 		access_token_secret: process.env.access_token_secret
-	});
+	}); //adding twitter info
 var Canvas = require('canvas');
 var fs = require('fs');
 var Image = Canvas.Image;
 var Font = Canvas.Font;
-var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
+var words = fs.readFileSync('./words_alpha.txt').toString().split('\n'); //reading dictionary file
 var index = 0;
 	
 	console.log("WE ARE LIVE");
-setInterval(hub, 1000*60*10);
+setInterval(hub, 1000*60*10); //runs hub function every 10 minutes
 
 
 
 function hub(){
 	console.log("NEXT WORD");
-	var word = words[index].charAt(0).toString().toUpperCase() + words[index].substring(1);
-		var textCanvas = new Canvas.createCanvas(1280, 450);	
+	var word = words[index].charAt(0).toString().toUpperCase() + words[index].substring(1); //autocapitalizes the current word in the dictionary file
+		var textCanvas = new Canvas.createCanvas(1280, 450); //creates new canvas
 			var ctx = textCanvas.getContext("2d");
-			ctx.font = "700 240px Verdana";
-			textCanvas.width = 1280 + Math.max((ctx.measureText(word).width - 640), 0);
+			ctx.font = "700 240px Verdana"; //here we set the font
+			textCanvas.width = 1280 + Math.max((ctx.measureText(word).width - 640), 0); //making the canvas width wider depending on the word size
 			ctx = textCanvas.getContext("2d");
 			ctx.fillStyle = "black";
-			ctx.rect(0, 0, textCanvas.width, 450);
+			ctx.rect(0, 0, textCanvas.width, 450); //giving canvas black background
 			ctx.fill();
-			ctx.fillStyle = "#F7971D"
-			roundRect(ctx, (textCanvas.width - 580), 80, 520, 320, 35, true);
-			ctx.fillStyle = "black";
+			ctx.fillStyle = "#F7971D" //orange
+			roundRect(ctx, (textCanvas.width - 580), 80, 520, 320, 35, true); //created orange rounded rectangle
+			ctx.fillStyle = "black"; //creating hub text
 			
 			ctx.textAlign = "center";
 			ctx.textBaseline = "middle";
 			ctx.fillText('hub', textCanvas.width - 320, 240);
-			ctx.fillStyle = "white";
+			ctx.fillStyle = "white"; //the making the current word
 			ctx.textAlign = "right";
 			ctx.fillText(word, textCanvas.width - 610, 240);
-			tweeter.post('media/upload', {media: textCanvas.toBuffer()}, function(err, data, reponse){
+			tweeter.post('media/upload', {media: textCanvas.toBuffer()}, function(err, data, reponse){ //uploading the image
 				if(err){
 					console.log(err);
 				}
 				else{
 					console.log(data);
-					tweeter.post('statuses/update', {status: word + 'hub', media_ids: data.media_id_string}, function(err, tweet, reponse){
+					tweeter.post('statuses/update', {status: word + 'hub', media_ids: data.media_id_string}, function(err, tweet, reponse){ //uploading the tweet
 							if(err){
 								console.log(err);
 							}
 					});
-					index++;
+					index++; //incrementing the index
 				}
 			});
-			/*
-			tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
-	var id = data.media_id_string;
-	console.log("Error: " + err);
-	console.log("Data: " + data);
-	console.log("Response: " + response);
-		tweeter.post('statuses/updates/', {status: word + 'hub', mediaIds: [id]}, function(err2, data2, response2){
-		console.log(data2);
-		});
-		index++;
-	});*/
 }
 
 function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
