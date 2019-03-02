@@ -1,18 +1,3 @@
-a
-aa
-aaa
-aah
-aahed
-aahing
-aahs
-aal
-aalii
-aaliis
-aals
-aam
-aani
-aardvark
-aardvarks
 aardwolf
 aardwolves
 aargh
@@ -29346,6 +29331,7 @@ bdrm
 bds
 be
 bea
+beabo
 beach
 beachboy
 beachboys
@@ -199867,6 +199853,7 @@ niggardling
 niggardness
 niggards
 nigged
+n-word
 nigger
 niggerdom
 niggered
@@ -238503,6 +238490,7 @@ pizzerias
 pizzicato
 pizzle
 pizzles
+pjiorn
 pk
 pkg
 pkgs
@@ -243456,6 +243444,7 @@ porkpies
 porks
 porkwood
 porkwoods
+p-word
 porn
 pornerastic
 porno
@@ -321783,6 +321772,7 @@ thymallus
 thymate
 thimber
 thimble
+thimbley
 thimbleberry
 thimbleberries
 thimbled
@@ -362642,6 +362632,7 @@ wariness
 warinesses
 waring
 waringin
+wario
 warish
 warison
 warisons
@@ -365317,6 +365308,7 @@ whomping
 whomps
 whomso
 whomsoever
+whomst
 whone
 whoo
 whoof
