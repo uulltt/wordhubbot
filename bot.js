@@ -39,7 +39,22 @@ function hub(){
 			ctx.fillStyle = "white";
 			ctx.textAlign = "right";
 			ctx.fillText(word, textCanvas.width - 610, 240);
-	tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
+			tweeter.post('media/upload', {media: textCanvas.toBuffer()}, function(err, data, reponse){
+				if(err){
+					console.log(err);
+				}
+				else{
+					console.log(data);
+					tweeter.post('statuses/update', {status: word + 'hub', media_ids: data.media_id_string}, function(err, tweet, reponse){
+							if(err){
+								console.log(err);
+							}
+					});
+					index++;
+				}
+			});
+			/*
+			tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
 	var id = data.media_id_string;
 	console.log("Error: " + err);
 	console.log("Data: " + data);
@@ -48,7 +63,7 @@ function hub(){
 		console.log(data2);
 		});
 		index++;
-	});
+	});*/
 }
 
 function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
