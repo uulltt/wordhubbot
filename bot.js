@@ -14,7 +14,7 @@ var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
 var index = 0;
 	
 	console.log("WE ARE LIVE");
-setInterval(hub, 1000*60);
+setInterval(hub, 1000*60*10);
 
 
 
