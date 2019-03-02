@@ -14,7 +14,7 @@ var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
 var index = 0;
 	
 	console.log("WE ARE LIVE");
-setInterval(hub, 1000*10*60);
+setInterval(hub, 1000*60);
 
 
 
@@ -41,6 +41,9 @@ function hub(){
 			ctx.fillText(word, textCanvas.width - 610, 240);
 	tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
 	var id = data.media_id_string;
+	console.log("Error: " + err);
+	console.log("Data: " + data);
+	console.log("Response: " + response);
 		tweeter.post('statuses/updates/', {status: word + 'hub', mediaIds: [id]}, function(err2, data2, response2){
 		console.log(data2);
 		});
