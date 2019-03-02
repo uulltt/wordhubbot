@@ -8,15 +8,19 @@ var tweeter = new Twitter({
 	});
 	
 var fs = require('fs');
+var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
+var index = 0;
 	
 setInterval(hub, 1000*60*60);
 
-var words = fs.readFileSync('./words_alpha.txt').toString().split('\n');
+
 
 function hub(){
 	var canvas;
+	var currentword = words[index];
 	tweeter.post('media/upload/', {media : canvas.toBuffer()}, function(err, data, response){
-		
-		
+	var id = data.media_id_string;
+		tweeter.post('statuses/updates/', {status: currentword + "hub", mediaIds: [id]}, console.log('tweeted :)'));
+		index++;
 	});
 }
