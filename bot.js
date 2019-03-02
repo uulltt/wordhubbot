@@ -39,7 +39,7 @@ function hub(){
 			ctx.fillText(word, textCanvas.width - 610, 240);
 	tweeter.post('media/upload/', {media : textCanvas.toBuffer()}, function(err, data, response){
 	var id = data.media_id_string;
-		tweeter.post('statuses/updates/', {status: currentword + 'hub', mediaIds: [id]}, function(err2, data2, response2){
+		tweeter.post('statuses/updates/', {status: word + 'hub', mediaIds: [id]}, function(err2, data2, response2){
 		console.log(data2);
 		});
 		index++;
