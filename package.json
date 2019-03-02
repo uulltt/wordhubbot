@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/uulltt/wordhubbot/issues"
   },
+  "dependencies": {
+   "twitter": "1.7.1"
+  }
   "homepage": "https://github.com/uulltt/wordhubbot#readme"
 }
