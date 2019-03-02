@@ -1,0 +1,19 @@
+{
+  "name": "wordhubbot",
+  "version": "1.0.0",
+  "description": "like wordtubebot but for hub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uulltt/wordhubbot.git"
+  },
+  "author": "uulltt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uulltt/wordhubbot/issues"
+  },
+  "homepage": "https://github.com/uulltt/wordhubbot#readme"
+}
