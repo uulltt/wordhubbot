@@ -24,9 +24,8 @@ tweeter.get("statuses/user_timeline", {screen_name: "wordhubbot"}, function(err,
 		console.log(err);
 	}
 	else{
-		var tweet = "";
-		for(var i = 0; i < response.length; i++){
-			tweet = reponse[i].substring(0, response[i].length - 3).toLowerCase();
+		var tweet = reponse[0].substring(0, response[0].length - 3).toLowerCase();
+		for(var i = 0; i < words.length; i++){
 			if(words[i] == tweet){
 				index = i + 1;
 				break;
@@ -34,7 +33,7 @@ tweeter.get("statuses/user_timeline", {screen_name: "wordhubbot"}, function(err,
 		}
 	
 	console.log("WE ARE LIVE");
-	console.log("Word index updated to: " + words[index]);
+	console.log("Word index updated from: " + words[index - 1] + " to: " + words[index]);
 	setInterval(hub, 1000*60*10); //runs hub function every 10 minutes
 	}
 });
