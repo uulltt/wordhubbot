@@ -19,9 +19,26 @@ var Image = Canvas.Image;
 var Font = Canvas.Font;
 var words = fs.readFileSync('./words_alpha.txt').toString().split('\n'); //reading dictionary file
 var index = 0;
+tweeter.get("statuses/user_timeline", {screen_name: "wordhubbot"}, function(err, data, response){
+	if(err){
+		console.log(err);
+	}
+	else{
+		var tweet = "";
+		for(var i = 0; i < response.length; i++){
+			tweet = reponse[i].substring(0, response[i].length - 3).toLowerCase();
+			if(words[i] == tweet){
+				index = i + 1;
+				break;
+			}
+		}
 	
 	console.log("WE ARE LIVE");
-setInterval(hub, 1000*60*10); //runs hub function every 10 minutes
+	console.log("Word index updated to: " + words[index]);
+	setInterval(hub, 1000*60*10); //runs hub function every 10 minutes
+	}
+});
+
 
 
 
