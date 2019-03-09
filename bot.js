@@ -24,13 +24,11 @@ tweeter.get("statuses/user_timeline", {screen_name: "wordhubbot"}, function(err,
 		console.log(err);
 	}
 	else{
-		var tweet = reponse[0].substring(0, response[0].length - 3).toLowerCase();
-		for(var i = 0; i < words.length; i++){
-			if(words[i] == tweet){
-				index = i + 1;
-				break;
-			}
-		}
+		var tweet = reponse[0].text.substring(0, response[0].length - 3).toLowerCase();
+		index = words.indexOf(tweet) + 1;
+
+		if(index == 0)
+			console.log("Error: latest word could not be found.");
 	
 	console.log("WE ARE LIVE");
 	console.log("Word index updated from: " + words[index - 1] + " to: " + words[index]);
