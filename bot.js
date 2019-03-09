@@ -24,6 +24,7 @@ tweeter.get("statuses/user_timeline", {screen_name: "wordhubbot"}, function(err,
 		console.log(err);
 	}
 	else{
+		console.log(data);
 		var tweet = data.text.substring(0, data.text.length - 3).toLowerCase();
 		index = words.indexOf(tweet) + 1;
 
