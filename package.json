@@ -17,7 +17,7 @@
   },
   "dependencies": {
    "twitter": "1.7.1",
-   "canvas": "2.6.1"
+   "canvas": "2.0.0-alpha.12"
   },
   "engines": {
     "node": "10.x"
