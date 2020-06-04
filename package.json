@@ -17,7 +17,10 @@
   },
   "dependencies": {
    "twitter": "1.7.1",
-   "canvas": "2.0.0-alpha.12"
+   "canvas": "2.6.1"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "homepage": "https://github.com/uulltt/wordhubbot#readme"
 }
